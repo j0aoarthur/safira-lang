@@ -128,7 +128,7 @@ def analise(pathArquivo):
 # ================= EXECUÇÃO =================
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Uso correto: python lexico.py <arquivo.vtx>")
+        print("Uso correto: python lexico.py <arquivo.saf>")
         sys.exit(1)
         
     arquivo_entrada = sys.argv[1]

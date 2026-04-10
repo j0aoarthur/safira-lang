@@ -1,7 +1,7 @@
-# Especificação da Linguagem: Vortex
+# Especificação da Linguagem: Safira
 
 ## 1. Introdução
-Vortex é uma linguagem de programação procedural, fortemente tipada, desenvolvida para o trabalho da disciplina de Compiladores. Ela possui uma sintaxe baseada em C e Java, mas traz alguns diferenciais práticos para tratamento de erros e fluxo de dados.
+Safira é uma linguagem de programação procedural, fortemente tipada, desenvolvida para o trabalho da disciplina de Compiladores. Ela possui uma sintaxe baseada em C e Java, mas traz alguns diferenciais práticos para tratamento de erros e fluxo de dados.
 
 ---
 
