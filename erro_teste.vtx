@@ -1,0 +1,20 @@
+// Arquivo de Teste: Detecção de Erros Léxicos
+
+int valorBase = 100;
+float multiplicador = 1.5;
+
+/* 
+   Abaixo temos o primeiro erro. 
+   O símbolo '$' não pertence ao alfabeto da linguagem Vortex.
+*/
+float total = valorBase + $multiplicador;
+
+task processarDados() {
+    // Segundo erro: O símbolo '@' não é permitido em identificadores.
+    string @nomeCliente = "João da Silva";
+    
+    // O analisador deve continuar lendo o código após o erro
+    if (valorBase >= 50) {
+        valorBase |> print();
+    }
+}

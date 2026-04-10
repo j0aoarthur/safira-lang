@@ -1,0 +1,52 @@
+// Código Exemplo da Linguagem com Pipeline e Fallback
+
+int globalCounter = 0;
+
+/* 
+  Função com retorno (Req 11)
+  Calcula um valor usando matemática e operadores lógicos
+*/
+function float calculate(float base, float multiplier) {
+    float result = 0.0;
+    
+    // Inovação: Bloco de execução segura
+    attempt {
+        // Expressões com parênteses e matemática (Req 2 e 3)
+        result = (base * multiplier) / (multiplier - 1.0);
+    } fallback {
+        result = -1.0;
+    }
+    
+    return result;
+}
+
+// Procedure sem retorno (Req 10)
+task processStream() {
+    int i;
+    int limit = 10;
+    
+    // Loop com contador (Req 9)
+    for (i = 0; i < limit; i = i + 1) {
+        
+        // Múltiplos operadores lógicos e de comparação (Req 15)
+        if (i % 2 == 0 and not (i == 0)) {
+            
+            // INOVAÇÃO: Operador de Pipeline
+            // O valor 'i' é passado para calculate, e o resultado vai para print
+            i |> calculate(2.0) |> print();
+            
+        } else {
+            continue; // Break / Continue (Req 14)
+        }
+        
+        // Múltipla escolha (Req 13)
+        switch (i) {
+            case 5:
+                globalCounter = globalCounter + 1;
+                break;
+            default:
+                globalCounter = 0;
+                break;
+        }
+    }
+}
