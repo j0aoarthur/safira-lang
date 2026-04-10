@@ -5,7 +5,7 @@ float multiplicador = 1.5;
 
 /* 
    Abaixo temos o primeiro erro. 
-   O símbolo '$' não pertence ao alfabeto da linguagem Vortex.
+   O símbolo '$' não pertence ao alfabeto da linguagem Safira.
 */
 float total = valorBase + $multiplicador;
 
