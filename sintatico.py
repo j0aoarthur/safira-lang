@@ -65,7 +65,10 @@ class Parser:
         line = token["linha"] if token else self.current_line()
         found_val = f"'{token['valor']}'" if token else "fim do arquivo"
         expected_val = f"'{valor}'" if valor else tipo
-        msg = error_msg or f"Esperado {expected_val}, mas encontrado {found_val}."
+        if error_msg:
+            msg = f"{error_msg} Encontrado {found_val}."
+        else:
+            msg = f"Esperado {expected_val}, mas encontrado {found_val}."
         raise SafiraSyntaxError(line, msg)
 
     # 1. ESTRUTURA DO PROGRAMA
@@ -284,9 +287,7 @@ class Parser:
         line = self.peek()["linha"]
         self.consume("CONTROLE_FLUXO", "if")
         
-        if not self.check("ABRE_PARENTESES"):
-            raise SafiraSyntaxError(line, "Parênteses () esperados após if.")
-        self.consume("ABRE_PARENTESES")
+        self.consume("ABRE_PARENTESES", error_msg="Parênteses () esperados após if.")
         
         condition = self.parse_expression()
         
@@ -310,9 +311,7 @@ class Parser:
         line = self.peek()["linha"]
         self.consume("CONTROLE_FLUXO", "switch")
         
-        if not self.check("ABRE_PARENTESES"):
-            raise SafiraSyntaxError(line, "Parênteses () esperados após switch.")
-        self.consume("ABRE_PARENTESES")
+        self.consume("ABRE_PARENTESES", error_msg="Parênteses () esperados após switch.")
         
         expr = self.parse_expression()
         
@@ -366,9 +365,7 @@ class Parser:
         line = self.peek()["linha"]
         self.consume("ESTRUTURA_LOOP", "while")
         
-        if not self.check("ABRE_PARENTESES"):
-            raise SafiraSyntaxError(line, "Parênteses () esperados após while.")
-        self.consume("ABRE_PARENTESES")
+        self.consume("ABRE_PARENTESES", error_msg="Parênteses () esperados após while.")
         
         condition = self.parse_expression()
         
@@ -387,9 +384,7 @@ class Parser:
         line = self.peek()["linha"]
         self.consume("ESTRUTURA_LOOP", "for")
         
-        if not self.check("ABRE_PARENTESES"):
-            raise SafiraSyntaxError(line, "Parênteses () esperados após for.")
-        self.consume("ABRE_PARENTESES")
+        self.consume("ABRE_PARENTESES", error_msg="Parênteses () esperados após for.")
         
         initializer = None
         if not self.check("PONTO_VIRGULA"):
