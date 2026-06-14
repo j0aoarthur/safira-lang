@@ -1,0 +1,634 @@
+{
+  "type": "Program",
+  "body": [
+    {
+      "type": "VariableDeclaration",
+      "var_type": "int",
+      "name": "globalCounter",
+      "initializer": {
+        "type": "LiteralInt",
+        "value": 0,
+        "line": 3
+      },
+      "line": 3
+    },
+    {
+      "type": "VariableDeclaration",
+      "var_type": "string",
+      "name": "welcomeMessage",
+      "initializer": {
+        "type": "LiteralString",
+        "value": "Olá, bem-vindo ao Safira!",
+        "line": 4
+      },
+      "line": 4
+    },
+    {
+      "type": "FunctionDeclaration",
+      "return_type": "float",
+      "name": "calculate",
+      "parameters": [
+        {
+          "type": "Parameter",
+          "var_type": "float",
+          "name": "base",
+          "line": 9
+        },
+        {
+          "type": "Parameter",
+          "var_type": "float",
+          "name": "multiplier",
+          "line": 9
+        }
+      ],
+      "body": {
+        "type": "Block",
+        "statements": [
+          {
+            "type": "VariableDeclaration",
+            "var_type": "float",
+            "name": "result",
+            "initializer": {
+              "type": "LiteralFloat",
+              "value": 0.0,
+              "line": 10
+            },
+            "line": 10
+          },
+          {
+            "type": "AttemptFallback",
+            "attempt_block": {
+              "type": "Block",
+              "statements": [
+                {
+                  "type": "Assignment",
+                  "name": "result",
+                  "value": {
+                    "type": "BinaryExpression",
+                    "operator": "/",
+                    "left": {
+                      "type": "BinaryExpression",
+                      "operator": "*",
+                      "left": {
+                        "type": "Identifier",
+                        "name": "base",
+                        "line": 15
+                      },
+                      "right": {
+                        "type": "Identifier",
+                        "name": "multiplier",
+                        "line": 15
+                      },
+                      "line": 15
+                    },
+                    "right": {
+                      "type": "BinaryExpression",
+                      "operator": "-",
+                      "left": {
+                        "type": "Identifier",
+                        "name": "multiplier",
+                        "line": 15
+                      },
+                      "right": {
+                        "type": "LiteralFloat",
+                        "value": 1.0,
+                        "line": 15
+                      },
+                      "line": 15
+                    },
+                    "line": 15
+                  },
+                  "line": 15
+                }
+              ],
+              "line": 13
+            },
+            "fallback_block": {
+              "type": "Block",
+              "statements": [
+                {
+                  "type": "Assignment",
+                  "name": "result",
+                  "value": {
+                    "type": "UnaryExpression",
+                    "operator": "-",
+                    "argument": {
+                      "type": "LiteralFloat",
+                      "value": 1.0,
+                      "line": 17
+                    },
+                    "line": 17
+                  },
+                  "line": 17
+                }
+              ],
+              "line": 16
+            },
+            "line": 13
+          },
+          {
+            "type": "ReturnStatement",
+            "expression": {
+              "type": "Identifier",
+              "name": "result",
+              "line": 20
+            },
+            "line": 20
+          }
+        ],
+        "line": 9
+      },
+      "line": 9
+    },
+    {
+      "type": "TaskDeclaration",
+      "name": "processStream",
+      "parameters": [],
+      "body": {
+        "type": "Block",
+        "statements": [
+          {
+            "type": "VariableDeclaration",
+            "var_type": "int",
+            "name": "i",
+            "initializer": null,
+            "line": 25
+          },
+          {
+            "type": "VariableDeclaration",
+            "var_type": "int",
+            "name": "limit",
+            "initializer": {
+              "type": "LiteralInt",
+              "value": 10,
+              "line": 26
+            },
+            "line": 26
+          },
+          {
+            "type": "ForStatement",
+            "initializer": {
+              "type": "Assignment",
+              "name": "i",
+              "value": {
+                "type": "LiteralInt",
+                "value": 0,
+                "line": 29
+              },
+              "line": 29
+            },
+            "condition": {
+              "type": "BinaryExpression",
+              "operator": "<",
+              "left": {
+                "type": "Identifier",
+                "name": "i",
+                "line": 29
+              },
+              "right": {
+                "type": "Identifier",
+                "name": "limit",
+                "line": 29
+              },
+              "line": 29
+            },
+            "step": {
+              "type": "Assignment",
+              "name": "i",
+              "value": {
+                "type": "BinaryExpression",
+                "operator": "+",
+                "left": {
+                  "type": "Identifier",
+                  "name": "i",
+                  "line": 29
+                },
+                "right": {
+                  "type": "LiteralInt",
+                  "value": 1,
+                  "line": 29
+                },
+                "line": 29
+              },
+              "line": 29
+            },
+            "body": {
+              "type": "Block",
+              "statements": [
+                {
+                  "type": "IfStatement",
+                  "condition": {
+                    "type": "BinaryExpression",
+                    "operator": "and",
+                    "left": {
+                      "type": "BinaryExpression",
+                      "operator": "==",
+                      "left": {
+                        "type": "BinaryExpression",
+                        "operator": "%",
+                        "left": {
+                          "type": "Identifier",
+                          "name": "i",
+                          "line": 32
+                        },
+                        "right": {
+                          "type": "LiteralInt",
+                          "value": 2,
+                          "line": 32
+                        },
+                        "line": 32
+                      },
+                      "right": {
+                        "type": "LiteralInt",
+                        "value": 0,
+                        "line": 32
+                      },
+                      "line": 32
+                    },
+                    "right": {
+                      "type": "UnaryExpression",
+                      "operator": "not",
+                      "argument": {
+                        "type": "BinaryExpression",
+                        "operator": "==",
+                        "left": {
+                          "type": "Identifier",
+                          "name": "i",
+                          "line": 32
+                        },
+                        "right": {
+                          "type": "LiteralInt",
+                          "value": 0,
+                          "line": 32
+                        },
+                        "line": 32
+                      },
+                      "line": 32
+                    },
+                    "line": 32
+                  },
+                  "then_branch": {
+                    "type": "Block",
+                    "statements": [
+                      {
+                        "type": "ExpressionStatement",
+                        "expression": {
+                          "type": "PipelineExpression",
+                          "left": {
+                            "type": "PipelineExpression",
+                            "left": {
+                              "type": "Identifier",
+                              "name": "i",
+                              "line": 36
+                            },
+                            "right": {
+                              "type": "CallExpression",
+                              "callee": "calculate",
+                              "arguments": [
+                                {
+                                  "type": "LiteralFloat",
+                                  "value": 2.0,
+                                  "line": 36
+                                }
+                              ],
+                              "line": 36
+                            },
+                            "line": 36
+                          },
+                          "right": {
+                            "type": "CallExpression",
+                            "callee": "print",
+                            "arguments": [],
+                            "line": 36
+                          },
+                          "line": 36
+                        },
+                        "line": 36
+                      }
+                    ],
+                    "line": 32
+                  },
+                  "else_branch": {
+                    "type": "Block",
+                    "statements": [
+                      {
+                        "type": "ContinueStatement",
+                        "line": 39
+                      }
+                    ],
+                    "line": 38
+                  },
+                  "line": 32
+                },
+                {
+                  "type": "SwitchStatement",
+                  "expression": {
+                    "type": "Identifier",
+                    "name": "i",
+                    "line": 43
+                  },
+                  "cases": [
+                    {
+                      "type": "SwitchCase",
+                      "expression": {
+                        "type": "LiteralInt",
+                        "value": 5,
+                        "line": 44
+                      },
+                      "statements": [
+                        {
+                          "type": "Assignment",
+                          "name": "globalCounter",
+                          "value": {
+                            "type": "BinaryExpression",
+                            "operator": "+",
+                            "left": {
+                              "type": "Identifier",
+                              "name": "globalCounter",
+                              "line": 45
+                            },
+                            "right": {
+                              "type": "LiteralInt",
+                              "value": 1,
+                              "line": 45
+                            },
+                            "line": 45
+                          },
+                          "line": 45
+                        },
+                        {
+                          "type": "BreakStatement",
+                          "line": 46
+                        }
+                      ],
+                      "line": 44
+                    }
+                  ],
+                  "default_case": {
+                    "type": "SwitchDefault",
+                    "statements": [
+                      {
+                        "type": "Assignment",
+                        "name": "globalCounter",
+                        "value": {
+                          "type": "LiteralInt",
+                          "value": 0,
+                          "line": 48
+                        },
+                        "line": 48
+                      },
+                      {
+                        "type": "BreakStatement",
+                        "line": 49
+                      }
+                    ],
+                    "line": 47
+                  },
+                  "line": 43
+                }
+              ],
+              "line": 29
+            },
+            "line": 29
+          }
+        ],
+        "line": 24
+      },
+      "line": 24
+    },
+    {
+      "type": "TaskDeclaration",
+      "name": "verifySensor",
+      "parameters": [
+        {
+          "type": "Parameter",
+          "var_type": "int",
+          "name": "status",
+          "line": 55
+        },
+        {
+          "type": "Parameter",
+          "var_type": "float",
+          "name": "reading",
+          "line": 55
+        }
+      ],
+      "body": {
+        "type": "Block",
+        "statements": [
+          {
+            "type": "VariableDeclaration",
+            "var_type": "int",
+            "name": "attempts",
+            "initializer": {
+              "type": "LiteralInt",
+              "value": 0,
+              "line": 56
+            },
+            "line": 56
+          },
+          {
+            "type": "VariableDeclaration",
+            "var_type": "string",
+            "name": "logMessage",
+            "initializer": {
+              "type": "LiteralString",
+              "value": "",
+              "line": 57
+            },
+            "line": 57
+          },
+          {
+            "type": "WhileStatement",
+            "condition": {
+              "type": "BinaryExpression",
+              "operator": "or",
+              "left": {
+                "type": "BinaryExpression",
+                "operator": "<",
+                "left": {
+                  "type": "Identifier",
+                  "name": "attempts",
+                  "line": 59
+                },
+                "right": {
+                  "type": "LiteralInt",
+                  "value": 3,
+                  "line": 59
+                },
+                "line": 59
+              },
+              "right": {
+                "type": "BinaryExpression",
+                "operator": "!=",
+                "left": {
+                  "type": "Identifier",
+                  "name": "status",
+                  "line": 59
+                },
+                "right": {
+                  "type": "LiteralInt",
+                  "value": 200,
+                  "line": 59
+                },
+                "line": 59
+              },
+              "line": 59
+            },
+            "body": {
+              "type": "Block",
+              "statements": [
+                {
+                  "type": "Assignment",
+                  "name": "attempts",
+                  "value": {
+                    "type": "BinaryExpression",
+                    "operator": "+",
+                    "left": {
+                      "type": "Identifier",
+                      "name": "attempts",
+                      "line": 60
+                    },
+                    "right": {
+                      "type": "LiteralInt",
+                      "value": 1,
+                      "line": 60
+                    },
+                    "line": 60
+                  },
+                  "line": 60
+                },
+                {
+                  "type": "IfStatement",
+                  "condition": {
+                    "type": "BinaryExpression",
+                    "operator": "or",
+                    "left": {
+                      "type": "BinaryExpression",
+                      "operator": ">",
+                      "left": {
+                        "type": "Identifier",
+                        "name": "reading",
+                        "line": 62
+                      },
+                      "right": {
+                        "type": "LiteralFloat",
+                        "value": 100.0,
+                        "line": 62
+                      },
+                      "line": 62
+                    },
+                    "right": {
+                      "type": "BinaryExpression",
+                      "operator": "<=",
+                      "left": {
+                        "type": "Identifier",
+                        "name": "reading",
+                        "line": 62
+                      },
+                      "right": {
+                        "type": "LiteralFloat",
+                        "value": 0.0,
+                        "line": 62
+                      },
+                      "line": 62
+                    },
+                    "line": 62
+                  },
+                  "then_branch": {
+                    "type": "Block",
+                    "statements": [
+                      {
+                        "type": "Assignment",
+                        "name": "logMessage",
+                        "value": {
+                          "type": "LiteralString",
+                          "value": "Alerta: Leitura fora dos limites!",
+                          "line": 63
+                        },
+                        "line": 63
+                      }
+                    ],
+                    "line": 62
+                  },
+                  "else_branch": {
+                    "type": "IfStatement",
+                    "condition": {
+                      "type": "BinaryExpression",
+                      "operator": ">=",
+                      "left": {
+                        "type": "Identifier",
+                        "name": "reading",
+                        "line": 64
+                      },
+                      "right": {
+                        "type": "LiteralFloat",
+                        "value": 50.0,
+                        "line": 64
+                      },
+                      "line": 64
+                    },
+                    "then_branch": {
+                      "type": "Block",
+                      "statements": [
+                        {
+                          "type": "Assignment",
+                          "name": "logMessage",
+                          "value": {
+                            "type": "LiteralString",
+                            "value": "Leitura estável.",
+                            "line": 65
+                          },
+                          "line": 65
+                        }
+                      ],
+                      "line": 64
+                    },
+                    "else_branch": null,
+                    "line": 64
+                  },
+                  "line": 62
+                },
+                {
+                  "type": "IfStatement",
+                  "condition": {
+                    "type": "BinaryExpression",
+                    "operator": ">=",
+                    "left": {
+                      "type": "Identifier",
+                      "name": "attempts",
+                      "line": 68
+                    },
+                    "right": {
+                      "type": "LiteralInt",
+                      "value": 3,
+                      "line": 68
+                    },
+                    "line": 68
+                  },
+                  "then_branch": {
+                    "type": "Block",
+                    "statements": [
+                      {
+                        "type": "BreakStatement",
+                        "line": 69
+                      }
+                    ],
+                    "line": 68
+                  },
+                  "else_branch": null,
+                  "line": 68
+                }
+              ],
+              "line": 59
+            },
+            "line": 59
+          }
+        ],
+        "line": 55
+      },
+      "line": 55
+    }
+  ],
+  "line": 1
+}

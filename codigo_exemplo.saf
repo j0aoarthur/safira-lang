@@ -1,6 +1,7 @@
 // Código Exemplo da Linguagem com Pipeline e Fallback
 
 int globalCounter = 0;
+string welcomeMessage = "Olá, bem-vindo ao Safira!";
 
 /* 
   Função com retorno
@@ -19,7 +20,7 @@ function float calculate(float base, float multiplier) {
     return result;
 }
 
-// Procedure sem retorno
+// Procedure sem retorno com loop for e switch/case
 task processStream() {
     int i;
     int limit = 10;
@@ -49,3 +50,23 @@ task processStream() {
         }
     }
 }
+
+// Procedure sem retorno com loop while (sem contador) e outros operadores de comparação/lógicos
+task verifySensor(int status, float reading) {
+    int attempts = 0;
+    string logMessage = "";
+    
+    while (attempts < 3 or status != 200) {
+        attempts = attempts + 1;
+        
+        if (reading > 100.0 or reading <= 0.0) {
+            logMessage = "Alerta: Leitura fora dos limites!";
+        } else if (reading >= 50.0) {
+            logMessage = "Leitura estável.";
+        }
+        
+        if (attempts >= 3) {
+            break;
+        }
+    }
+}

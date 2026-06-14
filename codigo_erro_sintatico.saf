@@ -1,0 +1,17 @@
+// Arquivo de Teste: Erros Sintáticos Deliberados
+
+int a = 10;
+int b = 20;
+
+task testErrors() {
+    // Erro Sintático 1: Falta de parênteses no "if"
+    if a > b {
+        a = a + 1;
+    }
+
+    // Erro Sintático 2: Falta de ponto e vírgula no final da atribuição
+    b = 30
+
+    // Erro Sintático 3: Falta de fechar parênteses na chamada de função
+    print(a;
+}
